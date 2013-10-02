@@ -6,5 +6,3 @@ license 'Apache License, Version 2.0'
 summary 'Puppet module for installing and configuring a Redis server.'
 description 'Puppet module for installing and configuring a Redis server.'
 project_page 'https://github.counsyl.com/dev/puppet-redis'
-
-dependency 'counsyl/sys', '>= 0.9.4'
