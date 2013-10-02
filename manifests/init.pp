@@ -32,7 +32,7 @@ class redis(
     alias  => 'redis',
   }
 
-  if $ensure in ['installed', 'present'] {
+  if ! ($ensure in ['absent', 'uninstalled']) {
     service { $service:
       ensure     => $service_ensure,
       alias      => 'redis'
