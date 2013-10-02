@@ -35,7 +35,7 @@ class redis(
   if ! ($ensure in ['absent', 'uninstalled']) {
     service { $service:
       ensure     => $service_ensure,
-      alias      => 'redis'
+      alias      => 'redis',
       enable     => $service_enable,
       hasstatus  => true,
       hasrestart => true,
