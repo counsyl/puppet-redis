@@ -32,6 +32,30 @@ class redis(
     alias  => 'redis',
   }
 
+  if $::kernel == 'Linux' {
+    # See http://redis.io/topics/faq for more information on why this
+    # is necessary under 'Background saving is failing with a fork() error
+    # under Linux even if I've a lot of free RAM!' question.
+    $sysctl = '/etc/sysctl.conf'
+    $overcommit_line = 'vm.overcommit_memory=1'
+
+    # The line in sysctl.conf allows overcommit setting to persist across
+    # reboots.
+    file_line { 'vm.overcommit_memory':
+      path    => $sysctl,
+      line    => $overcommit_line,
+      match   => 'vm.overcommit_memory',
+      notify  => Exec['sysctl-overcommit'],
+    }
+
+    # Use `exec` to ensure current live kernel parameter is changed.
+    exec { 'sysctl-overcommit':
+      command     => "/sbin/sysctl -w ${overcommit_line}",
+      user        => 'root',
+      refreshonly => true,
+    }
+  }
+
   if ! ($ensure in ['absent', 'uninstalled']) {
     service { $service:
       ensure     => $service_ensure,
