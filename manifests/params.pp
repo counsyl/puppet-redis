@@ -3,10 +3,6 @@
 # Platform-dependent parameters for Redis.
 #
 class redis::params {
-  # Default port and bind address, should be same across platforms.
-  $port = '6379'
-  $bind = '127.0.0.1'
-  
   case $::osfamily {
     debian: {
       $package = 'redis-server'
