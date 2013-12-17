@@ -29,7 +29,7 @@ class redis(
 
   package { $package:
     ensure => $ensure,
-    alias  => 'redis',
+    alias  => 'redis-server',
   }
 
   if $::kernel == 'Linux' {
@@ -59,7 +59,7 @@ class redis(
   if ! ($ensure in ['absent', 'uninstalled']) {
     service { $service:
       ensure     => $service_ensure,
-      alias      => 'redis',
+      alias      => 'redis-server',
       enable     => $service_enable,
       hasstatus  => true,
       hasrestart => true,

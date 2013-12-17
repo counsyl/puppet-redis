@@ -49,7 +49,7 @@ class redis::config(
     mode    => $mode,
     content => $content,
     source  => $source,
-    notify  => Service['redis'],
-    require => Package['redis'],
+    notify  => Service['redis-server'],
+    require => Package['redis-server'],
   }
 }
