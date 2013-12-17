@@ -1,5 +1,5 @@
 name    'counsyl-redis'
-version '0.9.1'
+version '0.9.2'
 source  'git://github.counsyl.com/dev/puppet-redis.git'
 author  'Counsyl, Inc.'
 license 'Apache License, Version 2.0'
