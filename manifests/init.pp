@@ -63,7 +63,7 @@ class redis(
       enable     => $service_enable,
       hasstatus  => true,
       hasrestart => true,
-      require    => Package[$package],
+      subscribe  => Package[$package],
     }
   }
 }
