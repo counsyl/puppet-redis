@@ -1,5 +1,5 @@
 name    'counsyl-redis'
-version '0.9.2'
+version '0.9.3'
 source  'git://github.counsyl.com/dev/puppet-redis.git'
 author  'Counsyl, Inc.'
 license 'Apache License, Version 2.0'
@@ -7,4 +7,4 @@ summary 'Puppet module for installing and configuring a Redis server.'
 description 'Puppet module for installing and configuring a Redis server.'
 project_page 'https://github.counsyl.com/dev/puppet-redis'
 
-dependency 'puppetlabs/stdlib', '>= 4.1.0'
+dependency 'counsyl/sys', '>= 0.9.11'
